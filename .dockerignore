@@ -1,0 +1,18 @@
+# git folder
+.git
+
+# Files not part of running application, so could be ignored
+Dockerfile
+.dockerignore
+*.md
+
+# folder used for saving builded application, as we build application inside docker container
+# this folder not necessary inside
+dist
+
+# when creating docker container we install all dependancies, so do not need this folder
+node_modules
+
+# tests don't need inside container
+test
+
