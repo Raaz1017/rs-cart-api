@@ -19,8 +19,9 @@ FROM node:16-alpine as application
 ENV NODE_ENV=production
 
 # Copy all dependancies and file that was build
+# npm ci --only=production install only dependancies and ignore devDependancies
 COPY --from=build /app/package*.json ./
-COPY --from=build /app/node_modules ./node_modules
+RUN npm ci --only=production && npm cache clean --force
 COPY --from=build /app/dist ./dist
 
 USER node
